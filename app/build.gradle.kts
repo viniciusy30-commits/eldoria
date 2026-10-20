@@ -56,8 +56,11 @@ dependencies {
     implementation("androidx.recyclerview:recyclerview:1.3.2")
 }
 
-// Corrige a resolução do kotlin-reflect: o kotlin-compiler-embeddable 1.9.24
-// pede a versão 1.6.10, que o build não encontra. Usamos a 1.9.24 (do Kotlin atual).
-configurations.all {
-    resolutionStrategy.force("org.jetbrains.kotlin:kotlin-reflect:1.9.24")
+// Corrige: kotlin-reflect:1.6.10 (puxado pelo compilador) nao e encontrado no CI
+configurations.matching { it.name == "kotlinCompilerClasspath" }.configureEach {
+    resolutionStrategy.eachDependency {
+        if (requested.group == "org.jetbrains.kotlin" && requested.name == "kotlin-reflect") {
+            useVersion("1.9.24")
+        }
+    }
 }
