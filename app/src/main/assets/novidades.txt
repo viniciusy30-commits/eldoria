@@ -1,0 +1,10 @@
+#id 2026-10-20-a
+#titulo Primeira versão de Eldoria
+- RPG 2D offline estilo Tibia com mapa gigante gerado no celular
+- Herói com movimento suave pelo joystick virtual
+- Monstros: Slime, Lobo, Orc e Aranha Gigante, com IA de perseguição
+- Combate com dano, números flutuantes e barra de vida dos monstros
+- Sistema de nível, experiência, ouro e poções
+- Vida que regenera com o tempo e poções para recuperar
+- Salvamento automático do progresso no próprio celular
+- Tela de configurações com verificação de atualização pelo próprio app

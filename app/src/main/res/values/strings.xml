@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Eldoria</string>
+
+    <!-- Jogo -->
+    <string name="botao_atacar">Atacar</string>
+    <string name="botao_pocao">Usar poção</string>
+    <string name="botao_configuracoes">Configurações</string>
+    <string name="barra_vida">Vida</string>
+    <string name="barra_experiencia">Experiência</string>
+    <string name="nivel">Nível</string>
+    <string name="ouro">Ouro</string>
+
+    <!-- Configurações -->
+    <string name="titulo_configuracoes">Configurações</string>
+    <string name="versao_atual">Versão atual</string>
+    <string name="botao_verificar_atualizacao">Verificar atualização</string>
+    <string name="botao_ver_novidades">Ver o que mudou</string>
+    <string name="botao_reiniciar_jogo">Reiniciar jogo (apaga o save)</string>
+    <string name="sobre_o_jogo">Sobre o jogo</string>
+    <string name="texto_sobre">Eldoria é um RPG 2D offline estilo Tibia. Ande pelo mundo com o joystick, encoste nos monstros e use o botão de ataque. Cada abate dá experiência e ouro; ao subir de nível você fica mais forte. Seus dados ficam salvos somente no seu celular.</string>
+
+    <!-- Atualização -->
+    <string name="atualizacao_procurando">Procurando atualização…</string>
+    <string name="atualizacao_atualizado">Você já está na versão mais nova.</string>
+    <string name="atualizacao_sem_internet">Sem internet. Tente novamente mais tarde.</string>
+    <string name="atualizacao_titulo">Nova versão disponível</string>
+    <string name="atualizacao_mensagem">Existe uma versão mais nova do Eldoria. Deseja baixar e instalar agora?</string>
+    <string name="atualizacao_agora">Atualizar</string>
+    <string name="atualizacao_depois">Depois</string>
+    <string name="atualizacao_baixando">Baixando atualização…</string>
+    <string name="permissao_titulo">Permissão necessária</string>
+    <string name="permissao_mensagem">Para instalar a atualização, o Android precisa que você permita instalar apps deste local. Toque em Permitir e ative a opção na tela que abrir.</string>
+    <string name="permissao_permitir">Permitir</string>
+    <string name="atualizacao_erro">Não foi possível baixar a atualização.</string>
+
+    <!-- Novidades -->
+    <string name="novidades_titulo">O que mudou</string>
+    <string name="novidades_botao">Legal!</string>
+    <string name="novidades_vazio">Ainda não há novidades registradas.</string>
+</resources>
