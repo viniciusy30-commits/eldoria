@@ -81,7 +81,7 @@ object Updater {
                 }
 
                 when {
-                    codigo <= 0 || urlApk.isEmpty() -> Resultado.Ero("A release não tem APK publicado")
+                    codigo <= 0 || urlApk.isEmpty() -> Resultado.Erro("A release não tem APK publicado")
                     codigo > versaoAtual(context) -> Resultado.Disponivel(Versao(codigo, "v$codigo", urlApk, tamanho))
                     else -> Resultado.Atualizado
                 }
@@ -90,7 +90,7 @@ object Updater {
             } catch (e: IOException) {
                 Resultado.SemInternet
             } catch (e: Exception) {
-                Resultado.Ero(e.message ?: "Erro desconhecido")
+                Resultado.Erro(e.message ?: "Erro desconhecido")
             }
             main.post { callback(resultado) }
         }.start()

@@ -45,7 +45,7 @@ class UpdateHelper(
                     mostrarMensagem(activity.getString(R.string.atualizacao_atualizado))
                 Updater.Resultado.SemInternet ->
                     mostrarMensagem(activity.getString(R.string.atualizacao_sem_internet))
-                is Updater.Resultado.Ero ->
+                is Updater.Resultado.Erro ->
                     mostrarMensagem(activity.getString(R.string.atualizacao_erro))
             }
         }
