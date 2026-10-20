@@ -535,7 +535,7 @@ class GameView @JvmOverloads constructor(
                 if (mundo.tile(x, y) == Tiles.ARVORE) {
                     val sx = x * TAMANHO_TILE - camX
                     val sy = y * TAMANHO_TILE - camY
-                    objetos.add((y + 0.9f) to { c ->
+                    objetos.add((y + 0.9f) to { c: Canvas ->
                         c.drawBitmap(
                             arvore, null,
                             RectF(sx, sy - TAMANHO_TILE / 3f - 8f, sx + TAMANHO_TILE, sy + TAMANHO_TILE - TAMANHO_TILE / 3f + 8f),
@@ -548,10 +548,10 @@ class GameView @JvmOverloads constructor(
 
         for (m in monstros) {
             if (visivel(m.x, m.y)) {
-                objetos.add(m.y to { c -> desenharMonstro(c, m) })
+                objetos.add(m.y to { c: Canvas -> desenharMonstro(c, m) })
             }
         }
-        objetos.add(jogador.y to { c -> desenharJogador(c) })
+        objetos.add(jogador.y to { c: Canvas -> desenharJogador(c) })
 
         objetos.sortBy { it.first }
         for (obj in objetos) {
