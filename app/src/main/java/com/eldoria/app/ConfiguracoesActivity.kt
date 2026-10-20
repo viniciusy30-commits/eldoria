@@ -5,7 +5,9 @@ import android.os.Bundle
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.eldoria.app.databinding.ActivityConfiguracoesBinding
+import com.eldoria.app.game.Jogador
 import com.eldoria.app.game.Salvamento
+import com.eldoria.app.ui.DialogoClasse
 import com.eldoria.app.updater.UpdateHelper
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
@@ -31,6 +33,22 @@ class ConfiguracoesActivity : AppCompatActivity() {
             packageManager.getPackageInfo(packageName, 0).versionName ?: "1.0"
         } catch (_: Exception) {
             "1.0"
+        }
+
+        val jogadorAtual = Jogador(0, 0)
+        Salvamento.carregar(this, jogadorAtual)
+        binding.textClasseAtual.text = jogadorAtual.classe.nome
+
+        binding.botaoTrocarClasse.setOnClickListener {
+            DialogoClasse.mostrar(this) { classe ->
+                val j = Jogador(0, 0)
+                Salvamento.carregar(this, j)
+                j.classe = classe
+                j.vidaMax = classe.vidaBase + (j.nivel - 1) * 18
+                j.vida = j.vidaMax
+                Salvamento.salvar(this, j)
+                binding.textClasseAtual.text = classe.nome
+            }
         }
 
         binding.botaoVoltar.setOnClickListener { finish() }

@@ -11,6 +11,7 @@ object Salvamento {
 
     fun salvar(context: Context, j: Jogador) {
         val json = JSONObject()
+        json.put("classe", j.classe.name)
         json.put("nivel", j.nivel)
         json.put("xp", j.xp)
         json.put("vida", j.vida)
@@ -32,9 +33,14 @@ object Salvamento {
             .getString(CHAVE, null) ?: return
         try {
             val json = JSONObject(texto)
+            j.classe = try {
+                Classe.valueOf(json.optString("classe", "GUERREIRO"))
+            } catch (_: Exception) {
+                Classe.GUERREIRO
+            }
             j.nivel = json.optInt("nivel", 1).coerceAtLeast(1)
             j.xp = json.optInt("xp", 0).coerceAtLeast(0)
-            j.vidaMax = json.optInt("vidaMax", 100).coerceAtLeast(100)
+            j.vidaMax = j.classe.vidaBase + (j.nivel - 1) * 18
             j.vida = json.optInt("vida", j.vidaMax).coerceIn(1, j.vidaMax)
             j.ouro = json.optInt("ouro", 0).coerceAtLeast(0)
             j.pocoes = json.optInt("pocoes", 5).coerceAtLeast(0)

@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.eldoria.app.databinding.ActivityMainBinding
 import com.eldoria.app.game.EstadoJogador
 import com.eldoria.app.game.Salvamento
+import com.eldoria.app.ui.DialogoClasse
 import com.eldoria.app.ui.JoystickView
 import com.eldoria.app.updater.UpdateHelper
 import com.eldoria.app.updater.Updater
@@ -59,6 +60,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         atualizarHud(jogo.jogador.estado())
+        escolherClasseSePreciso()
         mostrarTutorialSePreciso()
         mostrarNovidadesSeAtualizou()
         updateHelper.verificarAutomatico()
@@ -66,6 +68,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
+        Salvamento.carregar(this, binding.gameView.jogador)
         binding.gameView.continuar()
     }
 
@@ -76,7 +79,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun atualizarHud(e: EstadoJogador) {
-        binding.textNivel.text = "Nv. ${e.nivel}"
+        binding.textNivel.text = "Nv. ${e.nivel} • ${binding.gameView.jogador.classe.nome}"
         binding.textOuro.text = "${e.ouro}"
         binding.textVida.text = "${e.vida} / ${e.vidaMax}"
         binding.textXp.text = "${e.xp} / ${e.xpProx} XP"
@@ -107,6 +110,20 @@ class MainActivity : AppCompatActivity() {
             .setMessage(texto)
             .setPositiveButton("OK", null)
             .show()
+    }
+
+    private fun escolherClasseSePreciso() {
+        val prefs = getSharedPreferences("jogo", MODE_PRIVATE)
+        if (prefs.getBoolean("escolheu_classe", false)) return
+        DialogoClasse.mostrar(this) { classe ->
+            val jogador = binding.gameView.jogador
+            jogador.classe = classe
+            jogador.vidaMax = classe.vidaBase + (jogador.nivel - 1) * 18
+            jogador.vida = jogador.vidaMax
+            prefs.edit().putBoolean("escolheu_classe", true).apply()
+            Salvamento.salvar(this, jogador)
+            atualizarHud(jogador.estado())
+        }
     }
 
     private fun mostrarTutorialSePreciso() {

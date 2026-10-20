@@ -1,3 +1,15 @@
+#id 2026-10-20-b
+#titulo Pixel art de verdade + 3 classes
+- Gráficos totalmente reformulados em pixel art detalhada, desenhada dentro do próprio app
+- Agora são 3 classes jogáveis: Guerreiro, Mago e Arqueiro
+- Escolha sua classe no início do jogo (dá para trocar nas configurações)
+- Guerreiro luta corpo a corpo com espada, com muita vida e dano
+- Mago lança bolas de fogo à distância, com animação de brilho
+- Arqueiro atira flechas rápidas de longe
+- Animações novas: andar, atacar e monstros com quadros de movimento
+- Monstros redesenhados: Slime, Lobo, Orc e Aranha Gigante
+- Terreno em pixel art: grama, flores, areia, pedra, água animada e árvores
+
 #id 2026-10-20-a
 #titulo Primeira versão de Eldoria
 - RPG 2D offline estilo Tibia com mapa gigante gerado no celular

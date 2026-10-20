@@ -38,4 +38,15 @@
     <string name="novidades_titulo">O que mudou</string>
     <string name="novidades_botao">Legal!</string>
     <string name="novidades_vazio">Ainda não há novidades registradas.</string>
+
+    <!-- Classes -->
+    <string name="classe_titulo">Escolha sua classe</string>
+    <string name="classe_subtitulo">Cada classe tem um jeito próprio de lutar. Você pode trocar depois nas configurações.</string>
+    <string name="classe_guerreiro">Guerreiro</string>
+    <string name="classe_guerreiro_desc">Forte e resistente, luta corpo a corpo com a espada.</string>
+    <string name="classe_mago">Mago</string>
+    <string name="classe_mago_desc">Lança bolas de fogo à distância, mas tem pouca vida.</string>
+    <string name="classe_arqueiro">Arqueiro</string>
+    <string name="classe_arqueiro_desc">Rápido e ágil, atira flechas precisas de longe.</string>
+    <string name="botao_trocar_classe">Trocar de classe</string>
 </resources>
